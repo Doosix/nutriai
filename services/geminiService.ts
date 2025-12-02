@@ -497,7 +497,7 @@ export const sendChatMessage = async (
     let response;
     if (imageBase64) {
         response = await chat.sendMessage({ 
-            content: { 
+            message: { 
                 role: 'user', 
                 parts: [
                     { inlineData: { mimeType: 'image/jpeg', data: imageBase64 } },
