@@ -1,0 +1,7 @@
+{
+  "name": "NutriAI Assistant",
+  "description": "A mobile-first nutrition assistant powered by Gemini. Log meals via text or photo, track macros, and chat with an AI nutritionist.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
