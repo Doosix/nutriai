@@ -1,6 +1,6 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Camera, Send, Loader2, ImagePlus, Type, Utensils, Coffee, Moon, Sun, Search, ScanBarcode, Star, Clock, ChevronRight, Plus, X, Barcode, Minus, AlertTriangle, HeartPulse, Info, ArrowLeft, ArrowRight, Save, Edit3 } from 'lucide-react';
+import { Camera, Loader2, ImagePlus, Utensils, Search, ScanBarcode, Star, Plus, X, Minus, ArrowLeft, ArrowRight, Edit3 } from 'lucide-react';
 import { analyzeTextLog, analyzeImageLog, searchFoodDatabase, lookupBarcode } from '../services/geminiService';
 import { FoodItem, MealType, FoodSearchResult, UserProfile } from '../types';
 
@@ -41,7 +41,6 @@ const Logger: React.FC<LoggerProps> = ({ onAddFood, onSuccess, recentFoods, favo
   });
 
   const scannerRef = useRef<any>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Time-based Meal Type
   useEffect(() => {

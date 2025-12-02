@@ -1,11 +1,19 @@
 
-import { GoogleGenAI, Type, Schema } from "@google/genai";
+import { GoogleGenAI, Type } from "@google/genai";
 import { NutritionData, UserProfile, FoodSearchResult, DayPlan, Recipe, MealType, DailyStats, NutritionTargets, FoodItem, MoodEntry, HabitInsight } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Polyfill for types if @types/node isn't picked up immediately by tsc
+declare const process: {
+  env: {
+    API_KEY: string;
+    [key: string]: string | undefined;
+  }
+};
+
+const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
 
 // Schema for detailed food analysis
-const foodLogSchema: Schema = {
+const foodLogSchema = {
   type: Type.OBJECT,
   properties: {
     foodName: { type: Type.STRING, description: "Descriptive name of the food or full meal (e.g. 'Steak with Fries and Salad')." },
