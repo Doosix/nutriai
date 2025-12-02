@@ -497,13 +497,10 @@ export const sendChatMessage = async (
     let response;
     if (imageBase64) {
         response = await chat.sendMessage({ 
-            message: { 
-                role: 'user', 
-                parts: [
-                    { inlineData: { mimeType: 'image/jpeg', data: imageBase64 } },
-                    { text: newMessage || "Analyze this image and tell me if it fits my goals." }
-                ] 
-            }
+            message: [
+                { inlineData: { mimeType: 'image/jpeg', data: imageBase64 } },
+                { text: newMessage || "Analyze this image and tell me if it fits my goals." }
+            ]
         });
     } else {
         response = await chat.sendMessage({ message: newMessage });
